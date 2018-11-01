@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace m3uDownload.DLL
 {
@@ -10,7 +6,7 @@ namespace m3uDownload.DLL
     {
         string Performer { get; set; }
         string Title     { get; set; }
-        string Number    { get; set; }
+        int    Number    { get; set; }
     }
 
     public interface IWebSong : ISong
@@ -20,6 +16,6 @@ namespace m3uDownload.DLL
 
     public interface ILocalSong : ISong
     {
-        string LocalDir  { get; set; }
+        string LocalPath { get; set; }
     }
 }
