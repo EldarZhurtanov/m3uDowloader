@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "m3uDownload.DLL", "m3uDownload.DLL\m3uDownload.DLL.csproj", "{C4A8FBAE-D085-44FD-BE4A-F6061E154EB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{52C41636-110E-4142-9123-CBF09FA7E128}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "m3uDownload.Test", "Test\m3uDownload.Test.csproj", "{52C41636-110E-4142-9123-CBF09FA7E128}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

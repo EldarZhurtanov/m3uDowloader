@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel;
 
-namespace Test
+namespace m3uDownloads.Test
 {
     class Program
     {
