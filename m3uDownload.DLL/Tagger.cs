@@ -5,7 +5,7 @@ namespace m3uDownload.DLL
 {
     public static class Tagger
     {
-        public static void TagFile(ILocalSong song)
+        public static void TagFile(ILocalSong song, bool setTagNumber = false)
         {
             if (System.IO.File.Exists(song.LocalPath))
             {
@@ -14,11 +14,12 @@ namespace m3uDownload.DLL
                 tag.Tag.Performers = new string[1];
                 tag.Tag.Performers[0] = song.Performer;
                 tag.Tag.Title = song.Title;
-                tag.Tag.Track = Convert.ToUInt32(song.Number);
+                if (setTagNumber)
+                    tag.Tag.Track = Convert.ToUInt32(song.Number);
                 tag.Save();
             }
             else
-                throw new FileNotFoundException("Трек по пути \"" + song.LocalPath + "\" не найден!");
+                throw new FileNotFoundException("Трек \"" + song.LocalPath + "\" не найден!");
         }
     }
 }
