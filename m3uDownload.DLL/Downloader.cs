@@ -7,9 +7,10 @@ using System.Linq;
 namespace m3uDownload.DLL
 {
     public class Downloader
+
     {
         private string _m3uPlaylistPath = null;
-        private IEnumerable<Song> _playlist = null;
+        private IEnumerable<Song> _playlist = new Queue<Song>();
 
         public string M3uPlaylistPath { get => _m3uPlaylistPath; set => _m3uPlaylistPath = SetM3UPlaylistPath(value); }
         public string SaveDirectory { get; set; } = null;
@@ -26,7 +27,7 @@ namespace m3uDownload.DLL
             if(SaveDirectory == null)
                 throw new ArgumentNullException("Путь сохранения не указан!");
 
-            foreach (var item in (_playlist as List<Song>))
+            foreach (var item in (_playlist.ToList()))
                 SetLocalPath(item);
 
             for(int i = 0; i < CountOfParallelDownload; i++)
@@ -62,7 +63,7 @@ namespace m3uDownload.DLL
         }
         private string SetM3UPlaylistPath(string m3uPath)
         {
-            List<Song> playlist = m3uParser.Parse(m3uPath) as List<Song>;
+            List<IWebSong> playlist = m3uParser.Parse(m3uPath).ToList();
 
             foreach (var item in playlist)
                 (_playlist as Queue<Song>).Enqueue(item as Song);
@@ -71,10 +72,10 @@ namespace m3uDownload.DLL
         }
         private void SetLocalPath(ILocalSong song)
         {
-            song.LocalPath = SaveDirectory + @"\";
+            song.LocalPath = SaveDirectory + @"/";
             if (NumberInTheTitle)
                 song.LocalPath += song.Number + ". ";
-            song.LocalPath += song.Performer + " - " + song.Title;
+            song.LocalPath += song.Performer + " - " + song.Title + ".mp3";
         }
     }
 
