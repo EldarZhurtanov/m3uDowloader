@@ -11,7 +11,7 @@ namespace m3uDownload.DLL
             {
                 var tag = TagLib.File.Create(song.LocalPath);
                 tag.Tag.Performers = null;
-                tag.Tag.Performers = new string[1];
+                tag.Tag.Performers = new string[2];
                 tag.Tag.Performers[0] = song.Performer;
                 tag.Tag.Title = song.Title;
                 if (setTagNumber)

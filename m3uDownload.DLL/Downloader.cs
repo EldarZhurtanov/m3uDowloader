@@ -45,16 +45,15 @@ namespace m3uDownload.DLL
 
             DownloadOneSongCompleted(sender, e);
 
-            if (_playlist.Count() != 0)
+            if ((_playlist as Queue<Song>).Count != 0)
             {
                 (sender as DownloadSongClient).Download((_playlist as Queue<Song>).Dequeue());
             }
-            else SetDefaultSettings();
         }
-        private void SetDefaultSettings()
+        public void SetDefaultSettings()
         {
             _m3uPlaylistPath = null;
-            _playlist = null;
+            _playlist = new Queue<Song>();
             SaveDirectory = null;
             NumberInTheTag = false;
             NumberInTheTitle = false;
@@ -64,6 +63,8 @@ namespace m3uDownload.DLL
         private string SetM3UPlaylistPath(string m3uPath)
         {
             List<IWebSong> playlist = m3uParser.Parse(m3uPath).ToList();
+
+            CountOfTrackOnPlaylist = Convert.ToUInt32(playlist.Count);
 
             foreach (var item in playlist)
                 (_playlist as Queue<Song>).Enqueue(item as Song);

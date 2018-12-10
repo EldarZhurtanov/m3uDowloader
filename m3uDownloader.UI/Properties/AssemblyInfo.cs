@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("m3uDownload.DLL")]
-[assembly: AssemblyDescription("Библиотека для загрузки треков из .m3u плейлиста")]
+[assembly: AssemblyTitle("m3uDownload.UI")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("m3uDownload.DLL")]
+[assembly: AssemblyProduct("m3uDownload.UI")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("c4a8fbae-d085-44fd-be4a-f6061e154eb5")]
+[assembly: Guid("d3a15f97-2aa1-42f1-90ee-bdff7dd47446")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //
