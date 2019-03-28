@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace m3uDownload.DLL
 {
@@ -10,10 +11,13 @@ namespace m3uDownload.DLL
             if (System.IO.File.Exists(song.LocalPath))
             {
                 var tag = TagLib.File.Create(song.LocalPath);
-                tag.Tag.Performers = null;
-                tag.Tag.Performers = new string[2];
-                tag.Tag.Performers[0] = song.Performer;
+
+                var newPerformers = new List<string>();
+                newPerformers.Add(song.Performer);
+                tag.Tag.Performers = newPerformers.ToArray();
+
                 tag.Tag.Title = song.Title;
+
                 if (setTagNumber)
                     tag.Tag.Track = Convert.ToUInt32(song.Number);
                 tag.Save();
